@@ -17,7 +17,7 @@ class LoginPage(BasePage):
     def __init__(
         self,
         driver: WebDriver,
-        url: str = "https://test.qa.saritasa.com/admin/login",
+        url: str = Secrets.LOGIN_PAGE_URL,
     ):
         super().__init__(driver, url)
 
