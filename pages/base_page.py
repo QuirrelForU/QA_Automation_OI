@@ -15,6 +15,11 @@ class BasePage:
         self.driver = driver
         self.url = url
 
+    @property
+    def current_url(self) -> str:
+        """Get current URL of the page."""
+        return self.driver.current_url
+
     def open(self) -> None:
         """Open the page URL in browser."""
         self.driver.get(self.url)
