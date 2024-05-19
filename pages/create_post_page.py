@@ -13,9 +13,9 @@ class CreatePostPage(BasePage):
 
     CREATE_BUTTON_LOCATOR = (By.CSS_SELECTOR, "button[type='submit']")
     POST_TITLE_LOCATOR = (By.ID, "title")
-    POST_CONTENT_LOCATOR = (By.CSS_SELECTOR, ".ql-editor")
+    POST_CONTENT_LOCATOR = (By.CLASS_NAME, "ql-editor")
     POST_AUTHOR_LOCATOR = (By.ID, "author")
-    SUCCESSFUL_NOTIFICATION_LOCATOR = (By.CSS_SELECTOR, ".alert-success")
+    SUCCESSFUL_NOTIFICATION_LOCATOR = (By.CLASS_NAME, "alert-success")
     VALIDATION_MESSAGE_LOCATOR = (By.CLASS_NAME, "validation")
 
     REQUIRED_FIELDS_COUNT = 3
