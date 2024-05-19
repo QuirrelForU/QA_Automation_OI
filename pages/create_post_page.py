@@ -16,6 +16,9 @@ class CreatePostPage(BasePage):
     POST_CONTENT_LOCATOR = (By.CSS_SELECTOR, ".ql-editor")
     POST_AUTHOR_LOCATOR = (By.ID, "author")
     SUCCESSFUL_NOTIFICATION_LOCATOR = (By.CSS_SELECTOR, ".alert-success")
+    VALIDATION_MESSAGE_LOCATOR = (By.CLASS_NAME, "validation")
+
+    REQUIRED_FIELDS_COUNT = 3
 
     TEST_DATA = {
         "Title": "HK Quote",
@@ -63,3 +66,11 @@ class CreatePostPage(BasePage):
             formatted_time = now.strftime("%B %-d, %Y, %-I:%M:%S %p")
 
         return formatted_time
+
+    @property
+    def get_validation_messages_count(self) -> int:
+        """Get number of validation messages in form."""
+        validation_messages = self.find_multiple(
+            *self.VALIDATION_MESSAGE_LOCATOR,
+        )
+        return len(validation_messages)

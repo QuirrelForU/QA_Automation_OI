@@ -28,3 +28,21 @@ class TestCreatePostPage:
         assert last_post_data[1] == create_post_page.TEST_DATA["Author"]
         assert last_post_data[2] == create_post_page.TEST_DATA["Title"]
         assert last_post_data[3] == post_creation_time
+
+    def test_post_validation_messages(self, driver):
+        """Test showing validation messages under required fields."""
+        login_page = LoginPage(driver)
+        login_page.open()
+        login_page.fill_form_fields()
+        login_page.press_enter_button()
+
+        create_post_page = CreatePostPage(driver)
+        create_post_page.open()
+        create_post_page.click_create_button()
+
+        validation_messages_count = (
+            create_post_page.get_validation_messages_count
+        )
+        assert (
+            validation_messages_count == create_post_page.REQUIRED_FIELDS_COUNT
+        )

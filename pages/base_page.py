@@ -27,3 +27,7 @@ class BasePage:
     def find(self, *args) -> WebElement:
         """Find a web element on the page using given locator."""
         return self.driver.find_element(*args)
+
+    def find_multiple(self, *args) -> list[WebElement]:
+        """Find a multiple web elements on the page using given locator."""
+        return self.driver.find_elements(*args)
